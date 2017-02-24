@@ -5,17 +5,19 @@ MAINTAINER Jackson Chen <jchen@sayhello.com>
 # set up build packages
 RUN apt update
 # needed by amarella env script
-RUN apt install -y fakeroot mtd-utils genext2fs cramfsprogs libxml2-dev
+RUN apt install -y fakeroot mtd-utils genext2fs cramfsprogs libxml2-dev \
+                    xz-utils unzip wget \
+                    vim tmux
 
 # set up local files
-RUN mkdir /home/hello
-ADD ./toolchain /home/hello/toolchain
-RUN apt install -y xz-utils unzip
-RUN tar -xvJf /home/hello/toolchain/linaro-armv7ahf-2015.11-gcc5.2-x86_64.tar.xz -C /usr/local/
-RUN unzip /home/hello/toolchain/arm-elf-4.5.2.zip -d /usr/local/
+RUN mkdir /home/hello &&\
+    mkdir /home/hello/toolchain
+# set up toolchain
+RUN wget "https://hello-firmware.s3.amazonaws.com/sati/toolchain/arm-elf-4.5.2.zip?Signature=0%2FteH1pyxIkdXQCQ6SPGzwwkFPo%3D&Expires=1550974714&AWSAccessKeyId=AKIAJIFAYC7K7Y2ELCBQ" -O /home/hello/toolchain/arm-elf.zip
+RUN wget "https://hello-firmware.s3.amazonaws.com/sati/toolchain/linaro-armv7ahf-2015.11-gcc5.2-x86_64.tar.xz?Signature=VMyq8%2BfH4m5FNnyblGrAFqYIQOc%3D&Expires=1550974714&AWSAccessKeyId=AKIAJIFAYC7K7Y2ELCBQ" -O /home/hello/toolchain/gcc.tar.xz
+RUN tar -xvJf /home/hello/toolchain/gcc.tar.xz -C /usr/local/
+RUN unzip /home/hello/toolchain/arm-elf.zip -d /usr/local/
 
-# fluff
-RUN apt install -y vim tmux 
 
 
 
