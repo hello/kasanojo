@@ -1,13 +1,33 @@
-# kasanojo
+# Kasanojo
 傘工場 Docker for compiling https://github.com/hello/kasa
 
+# Requirements
+*  Ubuntu host, other linux distro will work in theory but not tested.
+*  [docker](https://docs.docker.com/engine/installation/linux/ubuntu/)
+```
+#simplified install(no key check)
+$ sudo add-apt-repository \
+       "deb https://apt.dockerproject.org/repo/ \
+       ubuntu-$(lsb_release -cs) \
+       main"
+$ sudo apt-get update
+$ sudo apt-get -y install docker-engine
+```
+*  kasa repo checked out as following
+```
++-- parent
+|   +-- kasa
+|   +-- kasanojo (this)
+```
+       
 # instructions
 1.run tools/start.sh, this will build the container required for the build env, and log you into the container if successful
 2.run /home/hello/scripts/build*.sh to generate the binary
 
 # directory layout
-* host
-    contains scripts used by the container host
-
-* scripts
-    contains scripts invoked inside the container, is mounted by the host
+```
++-- kasanojo
+|   +-- Dockerfile      : image builder
+|   +-- tools/*         : scripts to be called by the host
+|   +-- scripts/*       : scripts mounted inside the container, invoked within.
+```
