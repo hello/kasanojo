@@ -6,5 +6,5 @@ echo $DIR
 
 sudo docker build -t kasanojo . && sudo docker run -t -i \
     -v  /home/jchen/Projects/kasa:/home/hello/kasa \
-    -v $DIR/../scripts:/home/hello/scripts \
+    -v $DIR/../scripts:/home/hello/scripts:ro \
     -v $SSH_AUTH_SOCK:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent kasanojo /bin/bash
