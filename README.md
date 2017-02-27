@@ -1,5 +1,6 @@
 # Kasanojo
-傘工場 Docker for compiling https://github.com/hello/kasa
+傘工場 -- Umbrella Factory.
+Docker for compiling https://github.com/hello/kasa
 
 # Requirements
 *  Ubuntu host, other linux distro will work in theory but not tested.
