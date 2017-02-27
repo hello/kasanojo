@@ -22,8 +22,8 @@ $ sudo apt-get -y install docker-engine
 ```
        
 # instructions
-1.run tools/start.sh, this will build the container required for the build env, and log you into the container if successful
-2.run /home/hello/scripts/build*.sh to generate the binary
+1.  run tools/start.sh, this will build the container required for the build env, and log you into the container if successful
+2.  run /home/hello/scripts/build*.sh inside the container to build kasa
 
 # directory layout
 ```
