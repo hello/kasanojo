@@ -5,7 +5,7 @@ MAINTAINER Jackson Chen <jchen@sayhello.com>
 # set up build packages
 RUN apt update
 # needed by amarella env script
-RUN apt install -y fakeroot mtd-utils genext2fs cramfsprogs libxml2-dev \
+RUN apt install -y fakeroot mtd-utils genext2fs cramfsprogs libxml2-dev bc \
                     xz-utils unzip wget \
                     vim tmux ssh git \
                     python build-essential libncurses-dev
