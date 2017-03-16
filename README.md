@@ -29,6 +29,6 @@ $ sudo apt-get -y install docker-engine
 ```
 +-- kasanojo
 |   +-- Dockerfile      : image builder
-|   +-- tools/*         : scripts to be called by the host
+|   +-- host/*          : scripts to be called by the host
 |   +-- scripts/*       : scripts mounted inside the container, invoked within.
 ```
