@@ -3,9 +3,9 @@ FROM  ubuntu:latest
 MAINTAINER Jackson Chen <jchen@sayhello.com>
 
 # set up build packages
-RUN apt update
+RUN apt-get update
 # needed by amarella env script
-RUN apt install -y fakeroot mtd-utils genext2fs cramfsprogs libxml2-dev bc kmod cpio gawk libgtk2.0-0 libsm6 \
+RUN apt-get install -y fakeroot mtd-utils genext2fs cramfsprogs libxml2-dev bc kmod cpio gawk libgtk2.0-0 libsm6 \
                     xz-utils unzip wget \
                     vim tmux ssh git \
                     python build-essential libncurses-dev
