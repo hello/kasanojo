@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get install -y fakeroot mtd-utils genext2fs cramfsprogs libxml2-dev bc kmod cpio gawk libgtk2.0-0 libsm6 \
                     xz-utils unzip wget \
                     vim tmux ssh git \
-                    python build-essential libncurses-dev
+                    python build-essential libncurses-dev autoconf libtool
 
 # set up toolchain
 RUN mkdir /home/hello &&\
