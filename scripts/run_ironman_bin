@@ -1,0 +1,2 @@
+#!/bin/bash
+qemu-arm-static -L /home/hello/kasa/ambarella/out/s2lm_ironman/fakeroot/ $@
