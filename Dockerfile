@@ -6,7 +6,7 @@ MAINTAINER Jackson Chen <jchen@sayhello.com>
 RUN apt-get update
 # needed by amarella env script
 RUN apt-get install -y fakeroot mtd-utils genext2fs cramfsprogs libxml2-dev bc kmod cpio gawk libgtk2.0-0 libsm6 \
-                    xz-utils unzip wget \
+                    xz-utils unzip wget curl \
                     vim tmux ssh git \
                     python build-essential libncurses-dev autoconf libtool
 
