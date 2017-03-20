@@ -26,3 +26,7 @@ RUN tar -xf /home/hello/toolchain/arm-elf-4.5.2/arm-elf-64.tar.bz2 -C /usr/local
 ENV HOME /home/hello
 ENV PATH="/home/hello/scripts:${PATH}"
 RUN apt-get install vim
+
+#########################################################
+#  Emulation
+RUN apt-get install -y qemu binfmt-support qemu-user-static
