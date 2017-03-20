@@ -13,7 +13,7 @@ if [ -d $KASADIR ]; then
     sudo docker build -t kasanojo . && sudo docker run --rm -t -i \
         -v $KASADIR:/home/hello/kasa \
         -v $DIR/../scripts:/home/hello/scripts:ro \
-        kasanojo /bin/bash
+        kasanojo /bin/bash $KASACMD 
     exit 0
 else
     echo Unable to find build directory, please checkout repo to $KASADIR
