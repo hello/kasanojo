@@ -1,2 +1,5 @@
 #!/bin/bash
-qemu-arm-static -L /home/hello/kasa/ambarella/out/s2lm_ironman/fakeroot/ $@
+MACH=s2lm_ironman
+FAKEROOTDIR=/home/hello/kasa/ambarella/out/$MACH/fakeroot
+LD_LIBRARY_PATH=$FAKEROOTDIR:$FAKEROOTDIR/usr:$LD_LIBRARY_PATH
+qemu-arm        -L $FAKEROOTDIR $@
