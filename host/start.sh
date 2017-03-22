@@ -14,7 +14,7 @@ if [ -d $KASADIR ]; then
         -v $KASADIR:/home/hello/kasa \
         -v $DIR/../scripts:/home/hello/scripts:ro \
         -v $DIR/../scripts/env/bashrc:/home/hello/.bashrc:ro \
-        kasanojo /bin/bash
+        kasanojo /bin/bash $KASACMD
     exit 0
 else
     echo Unable to find build directory, please checkout repo to $KASADIR
