@@ -1,0 +1,5 @@
+#!/bin/bash
+MACH=hawthorn
+FAKEROOTDIR=/home/hello/kasa/ambarella/out/$MACH/fakeroot
+LD_LIBRARY_PATH=$FAKEROOTDIR:$FAKEROOTDIR/usr:$LD_LIBRARY_PATH
+qemu-arm        -L $FAKEROOTDIR $@
