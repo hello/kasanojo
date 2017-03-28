@@ -48,12 +48,13 @@ RUN cd /home/hello/toolchain && \
     tar -xzf go.tar.gz -C /home/hello && \
     cp -R /home/hello/go /home/hello/go1.8
 ENV GOROOT_BOOTSTRAP /home/hello/go1.8
-ENV GOROOT /home/hello/go
 RUN cd /home/hello/go/src && ./make.bash
 RUN rm -rf /home/hello/go1.8
+RUN mv /home/hello/go /usr/lib/go
+ENV GOROOT /usr/lib/go
 
 #########################################################
 #  QoL
 ENV HOME /home/hello
-ENV PATH="/home/hello/scripts:/home/hello/go/bin:${PATH}"
+ENV PATH="/home/hello/scripts:/usr/lib/go/bin:${PATH}"
 
