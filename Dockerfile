@@ -42,13 +42,20 @@ RUN tar -xJf /home/hello/toolchain/gcc.tar.xz -C /usr/local/
 RUN unzip /home/hello/toolchain/arm-elf.zip -d /home/hello/toolchain
 RUN tar -xf /home/hello/toolchain/arm-elf-4.5.2/arm-elf-64.tar.bz2 -C /usr/local/
 
-# Get go
+# Get go and build
 RUN wget "https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz" -O /home/hello/toolchain/go.tar.gz
-RUN tar -C /usr/local -zxf /home/hello/toolchain/go.tar.gz
+RUN cd /home/hello/toolchain && \
+    tar -xzf go.tar.gz -C /home/hello && \
+    cp -R /home/hello/go /home/hello/go1.8
+ENV GOROOT_BOOTSTRAP /home/hello/go1.8
+RUN cd /home/hello/go/src && ./make.bash
+RUN rm -rf /home/hello/go1.8
+RUN mv /home/hello/go /usr/lib/go
+ENV GOROOT /usr/lib/go
 
 #########################################################
 #  QoL
 ENV HOME /home/hello
-ENV PATH="/home/hello/scripts:/usr/local/go/bin:${PATH}"
-
 EXPOSE 8080
+ENV PATH="/home/hello/scripts:/usr/lib/go/bin:${PATH}"
+
