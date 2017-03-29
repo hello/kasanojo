@@ -50,3 +50,5 @@ RUN tar -C /usr/local -zxf /home/hello/toolchain/go.tar.gz
 #  QoL
 ENV HOME /home/hello
 ENV PATH="/home/hello/scripts:/usr/local/go/bin:${PATH}"
+
+EXPOSE 8080
