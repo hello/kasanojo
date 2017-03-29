@@ -5,6 +5,10 @@ set -e
 DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 KASADIR=$DIR/../../kasa
 
+if [-z "$GOPATH" ]; then
+    echo "Error: Please set GOPATH"
+    exit 1
+fi
 echo ===========================
 echo Docker:  $DIR
 echo Project: $KASADIR
@@ -17,6 +21,7 @@ if [ -d $KASADIR ]; then
         -v $KASADIR:/home/hello/kasa \
         -v $DIR/../scripts:/home/hello/scripts \
         -v $DIR/../scripts/env/bashrc:/home/hello/.bashrc:ro \
+        -v ~/go:/home/hello/go \
         kasanojo /bin/bash $KASACMD
     exit 0
 else

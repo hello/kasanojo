@@ -51,6 +51,8 @@ ENV GOROOT_BOOTSTRAP /home/hello/go1.8
 RUN cd /home/hello/go/src && ./make.bash
 RUN rm -rf /home/hello/go1.8
 RUN mv /home/hello/go /usr/lib/go
+RUN mkdir /home/hello/go
+ENV GOPATH /home/hello/go
 ENV GOROOT /usr/lib/go
 
 #########################################################
