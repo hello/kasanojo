@@ -1,4 +1,7 @@
 alias ls="ls --color=auto"
 source /home/hello/kasa/ambarella/build/env/armv7ahf-linaro-gcc.env
-UTEKI_ROOT=/home/hello/kasa/ambarella/uteki
+export UTEKI_ROOT=/home/hello/kasa/ambarella/uteki
+export GOOS=linux
+export GOARCH=arm
+export GOARM=7
 cd
